@@ -13,5 +13,5 @@ fridge1.turn_off_defrosting()
 print(fridge1.__str__())
 fridge1.delete_model_info()
 print(fridge1.__str__())
-for elem in arr:
-    print(f'brand: {elem.get_brand()}')
+print(fridge1.__str__())
+print(fridge2.__str__())
