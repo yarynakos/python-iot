@@ -1,4 +1,7 @@
-class Fridge:
+from abc import ABC, abstractmethod
+
+
+class Fridge(ABC):
     __instance = None
 
     def __init__(self, brand='samsung', model='abc', capacity=100, is_defrosting=False, energy_efficiency_class='A'):
@@ -17,11 +20,7 @@ class Fridge:
     def delete_model_info(self):
         self.model = None
 
-    @staticmethod
-    def get_instance():
-        return Fridge.__instance
-
     def __str__(self):
-        return f'brand: {self.brand}, model: {self.model}, capacity: {self.capacity}, is_defrosting: {self.is_defrosting},' \
-               f' energy_efficiency_class: {self.energy_efficiency_class}'
+        return f'brand: {self.brand}, model: {self.model}, capacity: {self.capacity}, is_defrosting:' \
+               f' {self.is_defrosting},'  f' energy_efficiency_class: {self.energy_efficiency_class}'
 
