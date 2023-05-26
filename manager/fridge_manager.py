@@ -4,7 +4,7 @@ class FridgeManager:
     """
     fridge_list = []
 
-    def __int__(self):
+    def __init__(self):
         """
         Initializes a FridgeManager object.
         """
@@ -23,7 +23,7 @@ class FridgeManager:
         :param value: Capacity value for comparison
         :return: List of fridges
         """
-        return [fridge for fridge in self.fridge_list if fridge.capacity > value]
+        return list(filter(lambda fridge: fridge.capacity > value, self.fridge_list))
 
     def find_all_fridges_is_defrosing(self, value2):
         """
@@ -31,4 +31,4 @@ class FridgeManager:
         :param value2: Value for comparison
         :return: List of fridges
         """
-        return [fridge for fridge in self.fridge_list if fridge.is_defrosting is value2]
+        return list(filter(lambda fridge: fridge.is_defrosting is value2, self.fridge_list))
