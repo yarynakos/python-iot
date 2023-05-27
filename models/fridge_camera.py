@@ -8,7 +8,7 @@ class FridgeCamera(Fridge):
     """
     VOLUME_PER_KILOGRAM = 1.5
 
-    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class,
+    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class, set_price,
                  number_of_entries, type_of_tape, speed_of_tape, max_weight):
         """
         Initializes a FridgeCamera object
@@ -26,7 +26,7 @@ class FridgeCamera(Fridge):
         self.type_of_tape = type_of_tape
         self.speed_of_tape = speed_of_tape
         self.max_weight = max_weight
-        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class)
+        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class, set_price)
 
     def get_max_usable_capacity(self):
         """

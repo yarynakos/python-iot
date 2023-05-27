@@ -5,7 +5,7 @@ class MedicalFridge(Fridge):
     """
      Class that describe MedicalFridge
     """
-    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class,
+    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class, set_price,
                  type_of_doors, type_of_fridge, number_of_doors):
         """
 
@@ -21,7 +21,7 @@ class MedicalFridge(Fridge):
         self.type_of_doors = type_of_doors
         self.type_of_fridge = type_of_fridge
         self.number_of_doors = number_of_doors
-        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class)
+        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class, set_price)
 
     def get_max_usable_capacity(self):
         """
