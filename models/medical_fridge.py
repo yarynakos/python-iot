@@ -28,7 +28,7 @@ class MedicalFridge(Fridge):
         Overriding abstract method
         :return: Returns a list of the maximum useful volume of products that can be contained in the fridges.
         """
-        return self.capacity() * self.number_of_doors
+        return self.capacity * self.number_of_doors
 
     def __str__(self):
         """

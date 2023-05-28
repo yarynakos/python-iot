@@ -1,4 +1,4 @@
-from  decorators.decorators import check_duration_time
+from decorators.decorators import check_duration_time, convert_to_tuple
 
 
 class FridgeManager:
@@ -43,6 +43,7 @@ class FridgeManager:
     def get_list_of_elements_with_index(self):
         return [f'{index}, {fridge}' for fridge, index in enumerate(self.fridge_list)]
 
+    @convert_to_tuple
     def get_zip_of_fridges(self):
         return [zip(fridge, fridge.get_max_usable_capacity()) for fridge in self.fridge_list]
 
