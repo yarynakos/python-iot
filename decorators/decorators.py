@@ -12,7 +12,7 @@ def check_duration_time(func):
 
 
 def convert_to_tuple(func):
-    def converter(self):
-        return tuple(func(self))
+    def converter(*args, **kwargs):
+        return tuple(func(*args, **kwargs))
 
     return converter

@@ -45,7 +45,7 @@ class FridgeManager:
 
     @convert_to_tuple
     def get_zip_of_fridges(self):
-        return [zip(fridge, fridge.get_max_usable_capacity()) for fridge in self.fridge_list]
+        return [(fridge, fridge.get_max_usable_capacity()) for fridge in self.fridge_list]
 
     def conditions_dictionary(self):
         return {'all': all(fridge.capacity > 30 for fridge in self.fridge_list), 'any': any(fridge.capacity > 30 for
