@@ -5,7 +5,7 @@ class WineFridge(Fridge):
     """
      Class that describe WineFridge
     """
-    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class,
+    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class, set_price,
                  max_numbers_of_bottle, max_capacity_of_bottle):
         """
 
@@ -19,14 +19,14 @@ class WineFridge(Fridge):
         """
         self.max_numbers_of_bottle = max_numbers_of_bottle
         self.max_capacity_of_bottle = max_capacity_of_bottle
-        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class)
+        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class, set_price)
 
     def get_max_usable_capacity(self):
         """
         Overriding abstract method
         :return: Returns a list of the maximum useful volume of products that can be contained in the fridges.
         """
-        return self.capacity() * self.max_numbers_of_bottle
+        return self.capacity * self.max_numbers_of_bottle
 
     def __str__(self):
         """

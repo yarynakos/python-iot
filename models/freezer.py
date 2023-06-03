@@ -5,7 +5,7 @@ class Freezer(Fridge):
     """
       Class that describe Freezer
     """
-    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class,
+    def __init__(self, brand, model, capacity, is_defrosting, energy_efficiency_class, set_price,
                  min_temperature, number_of_boxes):
         """
         Initializes a Freezer object
@@ -19,14 +19,14 @@ class Freezer(Fridge):
         """
         self.min_temperature = min_temperature
         self.number_of_boxes = number_of_boxes
-        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class)
+        super().__init__(brand, model, capacity, is_defrosting, energy_efficiency_class, set_price)
 
     def get_max_usable_capacity(self):
         """
          Overriding abstract method
         :return: Returns a list of the maximum useful volume of products that can be contained in the fridges.
         """
-        return self.capacity() * self.number_of_boxes
+        return self.capacity * self.number_of_boxes
 
     def __str__(self):
         """

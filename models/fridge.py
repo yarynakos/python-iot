@@ -1,11 +1,13 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class Fridge(ABC):
     """
     That abstract class describe Fridge
     """
-    def __init__(self, brand='samsung', model='abc', capacity=100, is_defrosting=False, energy_efficiency_class='A'):
+
+    def __init__(self, brand='samsung', model='abc', capacity=100, is_defrosting=False, energy_efficiency_class='A',
+                 set_price={}):
         """
         :param brand: The brand of the fridge.
         :param model: The model of the fridge.
@@ -18,12 +20,21 @@ class Fridge(ABC):
         self.capacity = capacity
         self.is_defrosting = is_defrosting
         self.energy_efficiency_class = energy_efficiency_class
+        self.set_price = set_price
 
     def turn_on_defrosting(self):
         """
         Changes the field of the object to True
         """
         self.is_defrosting = True
+
+    @abstractmethod
+    def get_max_usable_capacity(self):
+        """
+         abstract method
+        :return: Returns a list of the maximum useful volume of products that can be contained in the fridges.
+        """
+        return self.capacity
 
     def turn_off_defrosting(self):
         """
@@ -45,3 +56,5 @@ class Fridge(ABC):
         return f'brand: {self.brand}, model: {self.model}, capacity: {self.capacity}, is_defrosting:' \
                f' {self.is_defrosting},'  f' energy_efficiency_class: {self.energy_efficiency_class}'
 
+    def get_dict(self, data_type):
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
