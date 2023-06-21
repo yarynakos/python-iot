@@ -27,5 +27,4 @@ for fridge in fridge_manager.find_all_fridges_is_defrosing(True):
     print(f"{fridge.brand} {fridge.model}")
 fridge_manager.get_list_of_max_capacity()
 print(fridge_manager.get_zip_of_fridges())
-print(12 % 14 + 1)
-print(15 % 14 + 1)
+fridge_manager[0].turn_off_defrosting()

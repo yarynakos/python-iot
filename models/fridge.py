@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from decorators.decorators import logged
+from exceptions.defrosting_exeption import DefrostingExceptions
 
 
 class Fridge(ABC):
@@ -6,7 +8,7 @@ class Fridge(ABC):
     That abstract class describe Fridge
     """
 
-    def __init__(self, brand='samsung', model='abc', capacity=100, is_defrosting=False, energy_efficiency_class='A',
+    def __init__(self, brand='samsung', model='abc', capacity=100, is_defrosting=True, energy_efficiency_class='A',
                  set_price={}):
         """
         :param brand: The brand of the fridge.
@@ -36,11 +38,13 @@ class Fridge(ABC):
         """
         return self.capacity
 
+    @logged(DefrostingExceptions, 'file')
     def turn_off_defrosting(self):
         """
         Changes the field of the object to False
         """
         self.is_defrosting = False
+        raise DefrostingExceptions(self.is_defrosting)
 
     def delete_model_info(self):
         """

@@ -1,4 +1,5 @@
 from time import time
+from exceptions.defrosting_exeption import DefrostingExceptions
 
 
 def check_duration_time(func):
@@ -16,3 +17,21 @@ def convert_to_tuple(func):
         return tuple(func(*args, **kwargs))
 
     return converter
+
+
+def logged(exception, mode):
+    def exception_handler(func):
+        def wrapper(self):
+            try:
+                func(self)
+            except DefrostingExceptions:
+                if mode == 'console':
+                    print(DefrostingExceptions.message)
+                elif mode == 'file':
+                    file = open('logs\\log.txt', 'a')
+                    file.write(f'{DefrostingExceptions.message}\n')
+                    file.close()
+
+        return wrapper
+
+    return exception_handler
